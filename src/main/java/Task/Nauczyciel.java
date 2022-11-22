@@ -5,24 +5,15 @@ import java.util.Scanner;
 
 
 public class Nauczyciel {
-    private String imie;
-    private String nazwisko;
+    private String imie,nazwisko,email,przedmiot;
+
     private Integer wiek;
-    private String email;
-    private String przedmiot;
-    private List<Nauczyciel> nauczyciele;
 
-    public void dodaj() {
-        ustawImie();
-        ustawNazwisko();
-        ustawWiek();
-        ustawEmail();
-        ustawPrzedmiot();
-        System.out.println("Imię:" + imie + '\n'+ "Nazwisko:" + nazwisko + '\n'+ "Wiek:" + wiek + '\n'+ "Email:" + email +'\n'+  "Przedmiot:" + przedmiot);
 
-    }
 
-    private String ustawImie() {
+
+
+    public String ustawImie() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Wprowadź imię: ");
         String imie;
@@ -35,14 +26,14 @@ public class Nauczyciel {
         return this.imie = imie;
     }
 
-    private String ustawNazwisko() {
+    public String ustawNazwisko() {
         System.out.print("Wprowadź nazwisko: ");
         Scanner sc = new Scanner(System.in);
         String nazwisko = sc.nextLine();
         return this.nazwisko = nazwisko;
     }
 
-    private Integer ustawWiek() {
+    public Integer ustawWiek() {
         Integer wiek;
         System.out.print("Wprowadź wiek: ");
         Scanner sc = new Scanner(System.in);
@@ -55,7 +46,7 @@ public class Nauczyciel {
         return this.wiek = wiek;
     }
 
-    private String ustawEmail() {
+    public String ustawEmail() {
         String email;
         Scanner sc = new Scanner(System.in);
         System.out.print("Wprowadź email:");
@@ -69,7 +60,7 @@ public class Nauczyciel {
         return this.email = email;
     }
 
-    private String ustawPrzedmiot() {
+    public String ustawPrzedmiot() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Wprowadź przedmiot: ");
         String przedmiot = sc.nextLine();

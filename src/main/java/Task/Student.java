@@ -1,27 +1,15 @@
 package Task;
 
 
+import javax.lang.model.element.VariableElement;
 import java.util.List;
 import java.util.Scanner;
 
 
 public class Student {
-    private String imie;
-    private String nazwisko;
+    private String imie,nazwisko,email,kierunek;
     private Integer wiek;
-    private String email;
-    private String kierunek;
-    private List<Nauczyciel> nauczyciele;
 
-    public void dodaj() {
-        ustawImie();
-        ustawNazwisko();
-        ustawWiek();
-        ustawEmail();
-        ustawKierunek();
-
-
-    }
 
     public String ustawImie() {
         Scanner sc = new Scanner(System.in);
@@ -36,14 +24,14 @@ public class Student {
         return this.imie = imie;
     }
 
-    private String ustawNazwisko() {
+    public String ustawNazwisko() {
         System.out.print("Wprowadź nazwisko: ");
         Scanner sc = new Scanner(System.in);
         String nazwisko = sc.nextLine();
         return this.nazwisko = nazwisko;
     }
 
-    private Integer ustawWiek() {
+    public Integer ustawWiek() {
         Integer wiek;
         System.out.print("Wprowadź wiek: ");
         Scanner sc = new Scanner(System.in);
@@ -56,7 +44,7 @@ public class Student {
         return this.wiek = wiek;
     }
 
-    private String ustawEmail() {
+    public String ustawEmail() {
         String email;
         Scanner sc = new Scanner(System.in);
         System.out.print("Wprowadź email:");
@@ -70,12 +58,13 @@ public class Student {
         return this.email = email;
     }
 
-    private String ustawKierunek() {
+    public String ustawKierunek() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Wprowadź kierunek: ");
         String kierunek = sc.nextLine();
         return this.kierunek = kierunek;
     }
+
     public String pobierzImie(){
         return imie;
     }
