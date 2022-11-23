@@ -2,6 +2,7 @@ package Task;
 
 
 import javax.lang.model.element.VariableElement;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -9,7 +10,11 @@ import java.util.Scanner;
 public class Student {
     private String imie,nazwisko,email,kierunek;
     private Integer wiek;
-
+    List<Nauczyciel> nauczyciele = new ArrayList<>();
+    public void przypiszNauczyciela(Nauczyciel nauczyciel){
+        System.out.println("Przypisano nauczyciela o imieniu: "+nauczyciel.pobierzImie());
+        this.nauczyciele.add(nauczyciel);
+    }
 
     public String ustawImie() {
         Scanner sc = new Scanner(System.in);

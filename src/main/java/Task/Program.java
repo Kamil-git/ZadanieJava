@@ -4,10 +4,35 @@ package Task;
 import java.util.*;
 
 public class Program {
+    public static Student znajdzStudenta(
+            List<Student> studenci) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Wpisz nazwe studenta: ");
+        String name = sc.nextLine();
+        for (Student student : studenci) {
+            if (student.pobierzImie().equals(name.substring(0, 1).toUpperCase() + name.substring(1))) {
+                System.out.println("Wyszukiwanie zakończone powodzeniem");
+                return student;
+            }
+        }
+        return null;
+    }
+
+    public static Nauczyciel znajdzNauczyciela(
+             List<Nauczyciel> nauczyciele) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print("Wpisz nazwe nauczyciela: ");
+        String name = sc.nextLine();
+        for (Nauczyciel nauczyciel : nauczyciele) {
+            if (nauczyciel.pobierzImie().equals(name.substring(0, 1).toUpperCase() + name.substring(1))) {
+                System.out.println("Wyszukiwanie zakończone powodzeniem");
+                return nauczyciel;
+            }
+        }
+        return null;
+    }
+
     public static void main(String[] args) {
-
-
-
 
 
         Scanner sc = new Scanner(System.in);
@@ -53,6 +78,9 @@ public class Program {
             System.out.println("6. Znajdz nauczyciela");
             System.out.println("7. Posortuj i wyswietl Nauczycieli");
             System.out.println("8. Posortuj i wyswietl Studentow");
+            System.out.println("9. Przypisz nauczyciela");
+            System.out.println("10. Przypisz studenta");
+            System.out.println("0. Wyjdz z programu");
             System.out.print("\nWprowadz swoj wybor : ");
             wybor = sc.nextInt();
 
@@ -88,28 +116,17 @@ public class Program {
                     break;
                 case 5:
                     System.out.print("Podaj imie wyszukiwanego studenta: ");
+                    Student szukanyStudent = Program.znajdzStudenta(studenci);
 
-                    String imie = sc.nextLine();
-                    for (Student szukanyStudent : studenci) {
-                        if (szukanyStudent.pobierzImie().equals(imie.substring(0, 1).toUpperCase() + imie.substring(1))) {
-                            System.out.println("Wyszukiwanie zakonczone powodzeniem: ");
-                            znalezionyStudent.addRow(szukanyStudent.pobierzImie(), szukanyStudent.pobierzNazwisko(), szukanyStudent.pobierzWiek(), szukanyStudent.pobierzEmail(), szukanyStudent.pobierzKierunek());
-                            znalezionyStudent.print();
-                        }
-                    }
-
+                    znalezionyStudent.addRow(szukanyStudent.pobierzImie(), szukanyStudent.pobierzNazwisko(), szukanyStudent.pobierzWiek(), szukanyStudent.pobierzEmail(), szukanyStudent.pobierzKierunek());
+                    znalezionyStudent.print();
 
                     break;
                 case 6:
                     System.out.print("Podaj imie wyszukiwanego nauczyciela: ");
-                    imie = sc.nextLine();
-                    for (Nauczyciel szukanyNauczyciel : nauczyciele) {
-                        if (szukanyNauczyciel.pobierzImie().equals(imie.substring(0, 1).toUpperCase() + imie.substring(1))) {
-                            System.out.println("Wyszukiwanie zakonczone powodzeniem: ");
-                            znalezionyNauczyciel.addRow(szukanyNauczyciel.pobierzImie(), szukanyNauczyciel.pobierzNazwisko(), szukanyNauczyciel.pobierzWiek(), szukanyNauczyciel.pobierzEmail(), szukanyNauczyciel.pobierzPrzedmiot());
-                            znalezionyNauczyciel.print();
-                        }
-                    }
+                    Nauczyciel szukanyNauczyciel = Program.znajdzNauczyciela(nauczyciele);
+                    znalezionyNauczyciel.addRow(szukanyNauczyciel.pobierzImie(), szukanyNauczyciel.pobierzNazwisko(), szukanyNauczyciel.pobierzWiek(), szukanyNauczyciel.pobierzEmail(), szukanyNauczyciel.pobierzPrzedmiot());
+                    znalezionyNauczyciel.print();
                     break;
                 case 7:
                     nauczyciele.sort(Comparator.comparing(Nauczyciel::pobierzImie));
@@ -122,20 +139,28 @@ public class Program {
                     break;
                 case 8:
                     studenci.sort(Comparator.comparing(Student::pobierzImie));
-                    studenci.forEach((o1)->{
-                        posortowaniStudenci.addRow(o1.pobierzImie(),o1.pobierzNazwisko(),o1.pobierzWiek(),o1.pobierzEmail(),o1.pobierzKierunek());
+                    studenci.forEach((o1) -> {
+                        posortowaniStudenci.addRow(o1.pobierzImie(), o1.pobierzNazwisko(), o1.pobierzWiek(), o1.pobierzEmail(), o1.pobierzKierunek());
                     });
                     System.out.println("Posortowano Studentow po imieniu: ");
                     posortowaniStudenci.print();
 
                     break;
+                case 9:
+                    Student znalezionyStudent1 = Program.znajdzStudenta(studenci);
+                    Nauczyciel znalezionyNauczyciel1 = Program.znajdzNauczyciela(nauczyciele);
+                    znalezionyStudent1.przypiszNauczyciela(znalezionyNauczyciel1);
+                    break;
+                case 10:
+                    Nauczyciel znalezionyNauczyciel2 = Program.znajdzNauczyciela(nauczyciele);
+                    Student znalezionyStudent2 = Program.znajdzStudenta(studenci);
+                    znalezionyNauczyciel2.przypiszStudenta(znalezionyStudent2);
+                    break;
 
-//                case 9:
-//                    System.out.println("\nDziekuje za skorzystanie z programu.");
-//                    System.exit(1);
-//                    break;
-
-
+                case 11:
+                    System.out.println("\nDziekuje za skorzystanie z programu.");
+                    System.exit(1);
+                    break;
 
 
             }

@@ -1,5 +1,6 @@
 package Task;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -8,8 +9,11 @@ public class Nauczyciel {
     private String imie,nazwisko,email,przedmiot;
 
     private Integer wiek;
-
-
+    List<Student> studenci = new ArrayList<>();
+    public void przypiszStudenta(Student student){
+        System.out.println("Przypisano nauczyciela o imieniu: "+student.pobierzImie());
+        this.studenci.add(student);
+    }
     public String ustawImie() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Wprowadź imię: ");
