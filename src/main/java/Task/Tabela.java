@@ -1,9 +1,6 @@
 package Task;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class Tabela {
     private static final String HORIZONTAL_SEP = "-";
@@ -33,6 +30,8 @@ public class Tabela {
     public void addRow(String... cells) {
         rows.add(cells);
     }
+
+
 
     public void print() {
         int[] maxWidths = headers != null ?

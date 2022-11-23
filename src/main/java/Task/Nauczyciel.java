@@ -10,9 +10,6 @@ public class Nauczyciel {
     private Integer wiek;
 
 
-
-
-
     public String ustawImie() {
         Scanner sc = new Scanner(System.in);
         System.out.print("Wprowadź imię: ");
@@ -23,14 +20,14 @@ public class Nauczyciel {
                 System.out.println("Wprowadź poprawnę imię! Minimum 2 znaki!");
             }
         } while (imie.length() < 2);
-        return this.imie = imie;
+        return this.imie = imie.substring(0,1).toUpperCase()+imie.substring(1);
     }
 
     public String ustawNazwisko() {
         System.out.print("Wprowadź nazwisko: ");
         Scanner sc = new Scanner(System.in);
         String nazwisko = sc.nextLine();
-        return this.nazwisko = nazwisko;
+        return this.nazwisko = nazwisko.substring(0,1).toUpperCase()+nazwisko.substring(1);
     }
 
     public Integer ustawWiek() {
