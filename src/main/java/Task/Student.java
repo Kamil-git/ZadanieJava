@@ -33,7 +33,6 @@ public class Student {
     }
 
     public Integer ustawWiek() {
-        Integer wiek;
         System.out.print("Wprowadź wiek: ");
         Scanner sc = new Scanner(System.in);
         do {
@@ -82,15 +81,6 @@ public class Student {
         return kierunek;
     }
 
-    public Student find(
-            String name, List<Student> studenci) {
 
-        for (Student student : studenci) {
-            if (student.pobierzImie().equals(name)) {
-                return student;
-            }
-        }
-        return null;
-    }
 }
 

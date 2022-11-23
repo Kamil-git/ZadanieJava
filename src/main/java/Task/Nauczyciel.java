@@ -30,7 +30,7 @@ public class Nauczyciel {
         return this.nazwisko = nazwisko.substring(0,1).toUpperCase()+nazwisko.substring(1);
     }
 
-    public Integer ustawWiek() {
+    public int ustawWiek() {
         Integer wiek;
         System.out.print("Wprowadź wiek: ");
         Scanner sc = new Scanner(System.in);

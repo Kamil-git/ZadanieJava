@@ -31,7 +31,9 @@ public class Tabela {
         rows.add(cells);
     }
 
-
+    public void clear(){
+       this.rows.clear();
+    }
 
     public void print() {
         int[] maxWidths = headers != null ?
